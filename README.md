@@ -89,8 +89,11 @@ scanning-secrets-demo/
 ## Demo Workflow
 
 1. **Native Protection** – Show GitHub blocking a known secret pattern via Push Protection.
+![GitHub Push Protection](github-push-protection.png)
 2. **CI/CD Enforcement** – Push code containing a fake secret → Gitleaks scans → pipeline fails.
+![Secret Pipeline Fail](secret-pipeline-fail.png)
 3. **Remediation** – Remove the secret, push clean code → pipeline passes.
+![Succesful Secret Remediation](successful-secret-remediation.png)
 
 ---
 
