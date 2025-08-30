@@ -3,6 +3,13 @@
 A practical demonstration of detecting and preventing committed secrets using both **GitHub Advanced Security** and **Gitleaks** in a CI/CD pipeline.
 This project was developed as a 10-minute demo for **CSEC141 (Fall 2025)** and serves as a portfolio example for DevSecOps practices.
 
+[![CI - Test (Clean Control)](https://github.com/crow50/scanning-secrets-demo/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/crow50/scanning-secrets-demo/actions/workflows/test.yml)
+
+[![Secrets Scan](https://github.com/crow50/scanning-secrets-demo/actions/workflows/secrets-scan.yml/badge.svg?branch=main)](https://github.com/crow50/scanning-secrets-demo/actions/workflows/secrets-scan.yml)
+
+<img alt="gitleaks badge" src="https://img.shields.io/badge/protected%20by-gitleaks-blue">
+
+
 ---
 
 ## Why Secrets Scanning Matters
@@ -62,11 +69,17 @@ Key advantages:
 
 ```
 scanning-secrets-demo/
-|- .github/workflows/test.yml secrets-scan.yml   # GitHub Actions workflow
-|- src/app.py utils.py                                # Demo files for intentional secrets
+|- .github/workflows/
+|-- test.yml
+|-- gitleaks-scanning.yml
+|- src/
+|-- __init__.py
+|-- app.py
+|-- utils.py
 |- tests/test_app.py
 |- LICENSE
 |- README.md
+|- requirements.txt
 |- .gitignore
 ```
 
@@ -109,7 +122,7 @@ choco install gitleaks  # Windows
 sudo apt install gitleaks # Linux
 
 # Run scan
-gitleaks detect --source . --redact
+gitleaks detect # --source . # set source string default $PWD # --no-git # to scan current repo dir # --redact # to redact secrets from logs and stdout
 ```
 ![Local Gitleaks Run](local-gitleaks-scan.png)
 
