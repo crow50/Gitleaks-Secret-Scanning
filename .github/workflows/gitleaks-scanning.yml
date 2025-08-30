@@ -21,10 +21,30 @@ jobs:
           tar -xvzf gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz gitleaks
           sudo mv gitleaks /usr/local/bin/
 
-      - name: Run Gitleaks with custom config
+      - name: Debug show files & grep demo
+        run: |
+          git status
+          echo "---- repo tree ----"
+          ls -R
+          echo "---- show demo/trigger.txt ----"
+          sed -n '1,5p' demo/trigger.txt || true
+          echo "---- confirm rule exists in config ----"
+          grep -n "csec-demo-token" gitleaksconfig.toml || true
+          
+      - name: Run Gitleaks (current tree)
         run: |
           gitleaks detect \
             --source . \
+            --no-git \
             --redact \
             --config gitleaksconfig.toml \
+            --report-format json \
+            --report-path gitleaks-report.json \
             --exit-code 1
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gitleaks-report
+          path: gitleaks-report.json
