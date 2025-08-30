@@ -82,18 +82,6 @@ scanning-secrets-demo/
 
 ## Local Development
 
-To run Gitleaks locally (Optional):
-
-```bash
-# Install gitleaks
-brew install gitleaks   # Mac
-choco install gitleaks  # Windows
-sudo apt install gitleaks # Linux
-
-# Run scan
-gitleaks detect --source . --redact
-```
-
 To run demo files:
 
 ```bash
@@ -110,7 +98,20 @@ python3 -m src.app
 # Run tests
 python3 -m pytest -q
 ```
-![Local Run](local_run.png)
+![Local Demo Run](local-demo-run.png)
+
+To run Gitleaks locally (Optional):
+
+```bash
+# Install gitleaks
+brew install gitleaks   # Mac
+choco install gitleaks  # Windows
+sudo apt install gitleaks # Linux
+
+# Run scan
+gitleaks detect --source . --redact
+```
+![Local Gitleaks Run](local-gitleaks-scan.png)
 
 ---
 
