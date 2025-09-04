@@ -107,7 +107,8 @@ pre-commit install           # enables the hook for this repo
 pre-commit run --all-files   # test existing files
 ```
 
-![Local Pre-Commit Fail](local-pre-commit-fail.png)
+![Local Pre-Commit Fail](assets/local-pre-commit-fail.png)
+![Live Pre-Commit Fail](assets/pre-commit-fail.png)
 
 ---
 
@@ -118,6 +119,7 @@ Gitleaks-Secret-Scanning/
 |- .github/workflows/
 |-- test.yml
 |-- gitleaks-scanning.yml
+|- assets/ # Image Assets
 |- src/
 |-- __init__.py
 |-- app.py
@@ -135,13 +137,13 @@ Gitleaks-Secret-Scanning/
 ## Demo Workflow
 
 1. **Native Protection** - Show GitHub blocking a known secret pattern via Push Protection.
-![GitHub Push Protection](github-push-protection.png)
+![GitHub Push Protection](assets/github-push-protection.png)
 2. **CI/CD Enforcement** - Push code containing a fake secret -> Gitleaks scans -> pipeline fails.
-![Secret Pipeline Fail](secret-pipeline-fail.png)
+![Secret Pipeline Fail](assets/secret-pipeline-fail.png)
 3. **Remediation** - Remove the secret, push clean code -> pipeline passes.
-![Succesful Secret Remediation](successful-secret-remediation.png)
+![Succesful Secret Remediation](assets/successful-secret-remediation.png)
 4. **Git Filter Repo Remediation** - Remove the secret file from the repo commits history -> new repo with same pipelines
-![Git-Filter-Repo Remediation](git-filter-repo-remediation.png)
+![Git-Filter-Repo Remediation](assets/git-filter-repo-remediation.png)
 
 ---
 
@@ -163,7 +165,7 @@ python3 -m src.app
 # Run tests
 python3 -m pytest -q
 ```
-![Local Demo Run](local-demo-run.png)
+![Local Demo Run](assets/local-demo-run.png)
 
 To run Gitleaks locally (Optional):
 
@@ -176,7 +178,7 @@ sudo apt install gitleaks # Linux
 # Run scan
 gitleaks detect # --source . # set source string default $PWD # --no-git # to scan current repo dir # --redact # to redact secrets from logs and stdout
 ```
-![Local Gitleaks Run](local-gitleaks-scan.png)
+![Local Gitleaks Run](assets/local-gitleaks-scan.png)
 
 Purging leaked secrets:
 
@@ -199,7 +201,7 @@ git-filter-repo --invert-paths --path # Invert only affects files in --path stri
 git push --force --mirror origin
 
 ```
-![Git Filter Repo Dry-run](git-filter-repo-dry-run.png)
+![Git Filter Repo Dry-run](assets/git-filter-repo-dry-run.png)
 
 ---
 
