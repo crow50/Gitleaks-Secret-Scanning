@@ -84,7 +84,7 @@ Example: remove a file named `gitleaksconfig.toml` from all commits:
 ## Project Structure
 
 ```
-scanning-secrets-demo/
+Gitleaks-Secret-Scanning/
 |- .github/workflows/
 |-- test.yml
 |-- gitleaks-scanning.yml
