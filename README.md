@@ -81,6 +81,36 @@ Example: remove a file named `gitleaksconfig.toml` from all commits:
 
 ---
 
+## Gitleaks Pre-Commit Hooks
+
+Gitleaks can run as a pre-commit hook to stop secrets before they reach local commits. A lightweight local gate that scans staged changes, fails commits containing likely secrets, and encourages early remediation.
+
+Why use it locally?
+* Prevents accidental commits of API keys, tokens, or high-entropy strings
+* Faster feedback loop than waiting for CI
+* Enforce project-specific rules with custom config
+
+Setup (pre-commit framework)
+```yaml
+# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.2
+    hooks:
+      - id: gitleaks
+```
+
+Install and use
+```bash
+sudop apt install pre-commit # Linux
+pre-commit install           # enables the hook for this repo
+pre-commit run --all-files   # test existing files
+```
+
+![Local Pre-Commit Fail](local-pre-commit-fail.png)
+
+---
+
 ## Project Structure
 
 ```
@@ -94,7 +124,7 @@ Gitleaks-Secret-Scanning/
 |-- utils.py
 |- tests/test_app.py
 |- .gitignore
-|- gitleaksconfig.toml
+|- .pre-commit-config.yaml
 |- LICENSE
 |- README.md
 |- requirements.txt
