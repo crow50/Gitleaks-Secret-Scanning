@@ -39,7 +39,7 @@ A "secret" can be any sensitive value not intended for the public:
   All public repositories automatically have GitHub's native secret scanning enabled. It alerts repo owners when known secret patterns, such as AWS Keys, are pushed.
 
 * **Push Protection:**
-  Blocks commits containing *supported* secret types before they leave the local environment.
+  Blocks commits containing [*supported*](https://docs.github.com/en/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets) secret types before they leave the local environment.
 
 * **Limitations:**
 
@@ -69,7 +69,7 @@ Check out the playground on their [main site](https://gitleaks.io/) and test you
 
 ## Git-Filter-Repo
 
-[Git-Filter-Repo](https://github.com/newren/git-filter-repo) is a powerful git history rewriting tool that replaces `git filter-branch` with a faster, and more flexible alternative. Ideal for removing committed secrets, large files, or sensitive metadata from a repository's history.
+[Git-Filter-Repo](https://github.com/newren/git-filter-repo) is a powerful git history rewriting tool that replaces `git filter-branch` with a faster, and more flexible alternative. Useful for removing committed secrets, large files, or sensitive metadata from a repository's history.
 
 * Use cases
   * remove secrets, strip large blobs, rewrite author details, split/merge repos.
@@ -83,7 +83,7 @@ Example: remove a file named `gitleaksconfig.toml` from all commits:
 
 ## Gitleaks Pre-Commit Hooks
 
-Gitleaks can run as a pre-commit hook to stop secrets before they reach local commits. A lightweight local gate that scans staged changes, fails commits containing likely secrets, and encourages early remediation.
+Gitleaks can run as a [pre-commit](https://pre-commit.com/) hook to stop secrets before they reach local commits. A lightweight local gate that scans staged changes, fails commits containing likely secrets, and encourages early remediation.
 
 Why use it locally?
 * Prevents accidental commits of API keys, tokens, or high-entropy strings
@@ -102,7 +102,7 @@ repos:
 
 Install and use
 ```bash
-sudop apt install pre-commit # Linux
+sudo apt install pre-commit # Linux
 pre-commit install           # enables the hook for this repo
 pre-commit run --all-files   # test existing files
 ```
