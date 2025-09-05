@@ -203,6 +203,20 @@ git push --force --mirror origin
 ```
 ![Git Filter Repo Dry-run](assets/git-filter-repo-dry-run.png)
 
+Adding pre-commit hooks to environment:
+
+```bash
+# Option 1. globally install pre-commit
+sudo apt install pre-commit 
+
+# Option 2. install pre-commit in venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+# Install pre-commit hooks
+pre-commit install # Assumes .pre-commit-config.yaml is at the root of dir
+```
+
 ---
 
 ## License
