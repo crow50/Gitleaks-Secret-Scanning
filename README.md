@@ -216,7 +216,7 @@ pip install -r requirements.txt
 # Install pre-commit hooks
 pre-commit install # Assumes .pre-commit-config.yaml is at the root of dir
 ```
-
+![Pre-Commit Global Usage](assets/pre-commit-global.png)
 ---
 
 ## License
