@@ -3,7 +3,7 @@
 A practical demonstration of detecting and preventing committed secrets using both **GitHub Advanced Security** and **Gitleaks** in a CI/CD pipeline.
 This project was developed as a 10-minute demo for **CSEC141 (Fall 2025)** and serves as a portfolio example for DevSecOps practices.
 
-[![CI - Test (Clean Control)](https://github.com/crow50/scanning-secrets-demo/actions/workflows/test.yml/badge.svg)](https://github.com/crow50/scanning-secrets-demo/actions/workflows/test.yml)
+[![CI - Test (Clean Control)](https://github.com/crow50/Gitleaks-Secret-Scanning/actions/workflows/test.yml/badge.svg)](https://github.com/crow50/Gitleaks-Secret-Scanning/actions/workflows/test.yml)
 
 [![Gitleaks Scan](https://github.com/crow50/Gitleaks-Secret-Scanning/actions/workflows/gitleaks-scanning.yml/badge.svg)](https://github.com/crow50/Gitleaks-Secret-Scanning/actions/workflows/gitleaks-scanning.yml)
 
