@@ -1,19 +1,22 @@
+# Workflow name
 name: Gitleaks Scan
 
+# Specify the trigger event
 on:
   push:
-    branches: [ "*" ]
+    # Left blank to scan all branches on push
   pull_request:
     branches: [ "main" ]
 
+# Define the jobs to run
 jobs:
-  scan:
-    name: gitleaks
-    runs-on: ubuntu-latest
+  scan: # Job ID
+    name: gitleaks # Name of job to display in GitHub
+    runs-on: ubuntu-latest # Define the type of runner to use
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
-          fetch-depth: 0
+          fetch-depth: 0 # Fetch all history
       - uses: gitleaks/gitleaks-action@v2
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub token for Gitleaks
